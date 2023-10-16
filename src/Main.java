@@ -14,10 +14,10 @@ public class Main {
      * @param args Argumentos de línea de comando (no se utilizan en esta aplicación).
      */
     public static void main(String[] args) {
-        /** Nombre del archivo de entrada. */
+        // Nombre del archivo de entrada.
         String inputFile = "numeros.txt";
 
-        /** Nombre del archivo de salida. */
+        // Nombre del archivo de salida.
         String outputFile = "suma.txt";
 
         System.out.println("Directorio de trabajo = " + System.getProperty("user.dir"));
