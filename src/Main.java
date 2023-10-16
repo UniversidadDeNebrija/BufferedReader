@@ -4,50 +4,61 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Clase principal que lee números de un archivo, calcula su suma y escribe el resultado en otro archivo.
+ */
 public class Main {
+    /**
+     * Punto de entrada para el programa.
+     *
+     * @param args Argumentos de línea de comando (no se utilizan en esta aplicación).
+     */
     public static void main(String[] args) {
-        String inputFile = "numeros.txt"; // Nombre del archivo de entrada
-        String outputFile = "suma.txt"; // Nombre del archivo de salida
+        /** Nombre del archivo de entrada. */
+        String inputFile = "numeros.txt";
 
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        /** Nombre del archivo de salida. */
+        String outputFile = "suma.txt";
 
-        System.out.println("Maximum Integer = " + Integer.MAX_VALUE);
+        System.out.println("Directorio de trabajo = " + System.getProperty("user.dir"));
 
+        System.out.println("Valor máximo de Integer = " + Integer.MAX_VALUE);
 
         try {
-            // Abrir el archivo de entrada para lectura
+            // Abre el archivo de entrada para lectura
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 
             int suma = 0;
             String linea;
 
-            // Leer cada línea del archivo
+            // Lee cada línea del archivo
             while ((linea = reader.readLine()) != null) {
-                // Dividir la línea en números separados por espacios
+                // Divide la línea en números separados por espacios
                 String[] palabra = linea.split(" ");
 
-                // Sumar los números enteros presentes en la línea
+                // Suma los enteros presentes en la línea
                 for (String posibleNumero : palabra) {
                     try {
                         long num = Long.parseLong(posibleNumero);
-                        System.out.println("Long : " + num);
+                        System.out.println("Número largo: " + num);
                         suma += num;
                     } catch (NumberFormatException e) {
-                        // Ignorar valores no enteros
+                        // Ignora valores que no sean enteros
                     }
                 }
             }
 
-            // Cerrar el archivo de entrada
+            // Cierra el archivo de entrada
             reader.close();
 
-            // Abrir el archivo de salida para escritura
+            // Abre el archivo de salida para escritura
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
 
-            // Escribir la suma en el archivo de salida
+            // Escribe la suma en el archivo de salida
             writer.write("Suma: " + suma);
             System.out.println("La suma TOTAL es " + suma);
-            // Cerrar el archivo de salida
+
+            // Cierra el archivo de salida
             writer.close();
 
             System.out.println("La suma se ha guardado en " + outputFile);
