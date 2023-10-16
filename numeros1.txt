@@ -1,0 +1,6 @@
+Este es un archivo de prueba que contiene varios números y texto.
+3 4 5
+1 -13
+Texto sin números
+8
+Otro texto sin números
